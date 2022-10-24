@@ -29,14 +29,13 @@ public class NoticiaControlador {
     }
 
     @PostMapping("/registro")
-//   public String regristro(@RequestParam(required = false) MultipartFile archivo,
-//           @RequestParam("titulo") String titulo, @RequestParam("cuerpo") String cuerpo) throws MiException, Exception {
-public String regristro(@RequestParam("foto") MultipartFile archivo, @RequestParam("titulo") String titulo,
-        @RequestParam("cuerpo") String cuerpo, ModelMap modelo) throws MiException, Exception {
+   public String regristro(@RequestParam(required = false) MultipartFile archivo,
+           @RequestParam("titulo") String titulo, @RequestParam("cuerpo") String cuerpo) throws MiException, Exception {
+ //   public String regristro(@RequestParam("foto") MultipartFile archivo, @RequestParam("titulo") String titulo, @RequestParam("cuerpo") String cuerpo, ModelMap modelo) throws MiException, Exception {
         try {
-            System.out.println("Titulo = " + titulo);
-            System.out.println("Cuerpo = " + cuerpo);
-            System.out.println("Foto = " + archivo);
+//            System.out.println("Titulo = " + titulo);
+//            System.out.println("Cuerpo = " + cuerpo);
+//            System.out.println("Foto = " + archivo);
             noticiaServicio.crearNoticia( titulo, cuerpo, archivo);
            // modelo.put("exito", "La noticia fue registrado correctamente!");
         } catch (MiException ex) {
