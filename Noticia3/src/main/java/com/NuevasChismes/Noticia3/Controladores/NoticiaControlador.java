@@ -29,9 +29,10 @@ public class NoticiaControlador {
     }
 
     @PostMapping("/registro")
-   public String regristro(@RequestParam(required = false) MultipartFile archivo,
-           @RequestParam("titulo") String titulo, @RequestParam("cuerpo") String cuerpo) throws MiException, Exception {
- //   public String regristro(@RequestParam("foto") MultipartFile archivo, @RequestParam("titulo") String titulo, @RequestParam("cuerpo") String cuerpo, ModelMap modelo) throws MiException, Exception {
+//   public String regristro(@RequestParam(required = false) MultipartFile archivo,
+//           @RequestParam("titulo") String titulo, @RequestParam("cuerpo") String cuerpo) throws MiException, Exception {
+    public String regristro(@RequestParam("foto") MultipartFile archivo, @RequestParam("titulo") String titulo, 
+ @RequestParam("cuerpo") String cuerpo, ModelMap modelo) throws MiException, Exception {
         try {
 //            System.out.println("Titulo = " + titulo);
 //            System.out.println("Cuerpo = " + cuerpo);
