@@ -73,5 +73,13 @@ public class NoticiaServicio {
         }
     }   
 
+        public void eliminarNoticia(Long id){
+            noticiaRepositorio.deleteById(id);
+        }
+
+         public Noticia getOne(Long id){
+       return noticiaRepositorio.getOne(id);
+    }
+    
    
 }

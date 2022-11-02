@@ -37,7 +37,7 @@ public class ImagenServicio {
     }
 
     @Transactional
-    public Imagen actualizar(MultipartFile archivo, Long id) throws MiException {
+    public Imagen actualizar(MultipartFile archivo, String id) throws MiException {
         if (archivo != null) {
             try {
                 Imagen imagen = new Imagen();

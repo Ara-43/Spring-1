@@ -4,16 +4,19 @@ import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
+
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import org.hibernate.annotations.GenericGenerator;
+
 
 @Entity
 public class Imagen {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //@GenericGenerator(name = "uuid", strategy = "uuid 2")
-    private Long id;
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    private String id;
     
      private String mime;
      
@@ -25,7 +28,7 @@ public class Imagen {
     public Imagen() {
     }
 
-    public Imagen(Long id, String mime, String nombre, byte[] contenido) {
+    public Imagen(String id, String mime, String nombre, byte[] contenido) {
         this.id = id;
         this.mime = mime;
         this.nombre = nombre;
@@ -40,11 +43,11 @@ public class Imagen {
         this.nombre = nombre;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

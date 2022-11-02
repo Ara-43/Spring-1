@@ -1,8 +1,7 @@
 package com.NuevasChismes.Noticia3.Entidades;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
@@ -10,7 +9,9 @@ import javax.persistence.OneToOne;
 public class Noticia {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//        @GeneratedValue(generator = "uuid")
+//    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private Long id;
 
     private String titulo;
