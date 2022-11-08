@@ -1,6 +1,8 @@
 package com.NuevasChismes.Noticia3.Entidades;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -8,18 +10,18 @@ import javax.persistence.OneToOne;
 @Entity
 public class Noticia {
 
-    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //        @GeneratedValue(generator = "uuid")
 //    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String titulo;
 
     private String cuerpo;
 
-   @OneToOne
-   private Imagen foto;
+    @OneToOne
+    private Imagen foto;
 
     public Noticia() {
     }

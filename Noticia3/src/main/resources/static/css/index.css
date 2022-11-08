@@ -1,12 +1,13 @@
 .navBar{
-    background-color: #fff !important;
+    background-color: #C49976 !important;
+
 }
 
 .elementosNav{
     display: flex;
     width: 30%;
     justify-content: space-around;
-    color: #37474f;
+    color: #C49976;
     font-weight: 700;
 }
 
@@ -32,7 +33,7 @@
 }
 
 .header{
-    background-image: url(../img/FondoZoom_2.jpg);
+    background-image: url(../img/2.jpg);
     background-size: cover;
     height: 550px;
     display: flex;
@@ -78,3 +79,4 @@
 .boton:active{
     box-shadow: none;
 }
+

@@ -3,13 +3,13 @@
 
     <head th:replace= "/fragments/head :: head" </head>
 
-    <body>
+    <body style="background: #C49976">
         <nav class="navbar navbar-expand-lg navBar">
-<!--            <div class="containerImg">
+           <div class="containerImg">
                 <a href="/" class="navbar-brand d-flex align-items-center">
-                    <img class="logo" src="/img/Egg.png" alt="Img logo egg">
+                    <img class="logo" src="/img/Periodico-icon.png" alt="Img logo">
                 </a>
-            </div>-->
+            </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -41,14 +41,14 @@
                 <section class="text-center container">
 			<div class="row mt-3">
 				<div class="divVolver">
-					<a th:href="@{/}" class="btn btn-secondary my-2 botonVolver botones">Volver</a>
+					<a th:href="@{/inicio}" class="btn btn-secondary my-2 botonVolver botones">Volver</a>
 				</div>
 			</div>
 		</section>
-                <div class="container contenedorLibros">
+<!--                <div class="container contenedorLibros">
                     <p class="tituloLibros" th:if="${session.usuariosession != null}" th:text=" 'Hola de vuelta '+ ${session.usuariosession.nombre} "></p>
                    
-                </div>
+                </div>-->
                 <div class="bg-circle-1 bg-circle"></div>
                 <div class="bg-circle-2 bg-circle"></div>
                 <div class="bg-circle-3 bg-circle"></div>
