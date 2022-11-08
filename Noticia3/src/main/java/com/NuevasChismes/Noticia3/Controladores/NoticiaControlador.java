@@ -32,14 +32,14 @@ public class NoticiaControlador {
 //   public String regristro(@RequestParam(required = false) MultipartFile archivo,
 //           @RequestParam("titulo") String titulo, @RequestParam("cuerpo") String cuerpo) throws MiException, Exception {
     public String regristro(@RequestParam("foto") MultipartFile archivo, @RequestParam("titulo") String titulo,
-            @RequestParam("cuerpo") String cuerpo, ModelMap modelo) throws MiException, Exception {
+            @RequestParam("cuerpo") String cuerpo, @RequestParam("id") Long id, ModelMap modelo) throws MiException, Exception {
 //    public String regristro(@RequestParam MultipartFile archivo, @RequestParam String titulo,
 //            @RequestParam String cuerpo, ModelMap modelo) throws MiException, Exception {
         try {
 //            System.out.println("Titulo = " + titulo);
 //            System.out.println("Cuerpo = " + cuerpo);
 //            System.out.println("Foto = " + archivo);
-            noticiaServicio.crearNoticia(titulo, cuerpo, archivo);
+            noticiaServicio.crearNoticia(titulo, cuerpo, id, archivo);
             modelo.put("exito", "La noticia fue registrado correctamente!");
         } catch (MiException ex) {
             System.out.println(ex);
@@ -66,36 +66,23 @@ public class NoticiaControlador {
     public String modificar(@PathVariable Long id, ModelMap modelo) {
 
         modelo.put("noticia", noticiaServicio.getOne(id));
-
-//        List<Noticia> noticias = noticiaServicio.listarNoticias();
-
-//        modelo.addAttribute("titulo", titulo);
-//        modelo.addAttribute("cuerpo", cuerpo);
-//        modelo.addAttribute("foto", archivo);
+        
         return "noticia_modificar.html";
     }
 
     @PostMapping("/modificar/{id}")
-    public String modificar(@PathVariable String titulo, Long id, String cuerpo,
+    public String modificar(@PathVariable Long id, String titulo,  String cuerpo,
             ModelMap modelo, MultipartFile archivo) throws Exception, MiException {
         try {
-            List<Noticia> noticias = noticiaServicio.listarNoticias();
 
-//            modelo.addAttribute("titulo", titulo);
-//            modelo.addAttribute("cuerpo", cuerpo);
-//            modelo.addAttribute("foto", archivo);
             noticiaServicio.actualizarNoticia(titulo, id, cuerpo, archivo);
 
             return "redirect:../lista";
 
         } catch (MiException ex) {
-            List<Noticia> noticias = noticiaServicio.listarNoticias();
 
             modelo.put("error", ex.getMessage());
 
-//            modelo.addAttribute("titulo", titulo);
-//            modelo.addAttribute("cuerpo", cuerpo);
-//            modelo.addAttribute("foto", archivo);
             return "noticia_modificar.html";
         }
     }

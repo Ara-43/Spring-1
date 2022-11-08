@@ -37,16 +37,16 @@ public class ImagenControlador {
        return new ResponseEntity<>(imagen,headers, HttpStatus.OK); 
     }
     
-//     @GetMapping("/noticia/{id}")
-//    public ResponseEntity<byte[]> imagenNoticia (@PathVariable Long id){
-//        Noticia not = noticiaServicio.getOne(id);
-//        
-//       byte[] imagen= not.getFoto().getContenido();
-//       
-//       HttpHeaders headers = new HttpHeaders();
-//       
-//       headers.setContentType(MediaType.IMAGE_JPEG);
-//       
-//       return new ResponseEntity<>(imagen,headers, HttpStatus.OK); 
-//    }
+     @GetMapping("/noticia/{id}")
+    public ResponseEntity<byte[]> imagenNoticia (@PathVariable Long id){
+        Noticia not = noticiaServicio.getOne(id);
+        
+       byte[] imagen= not.getFoto().getContenido();
+       
+       HttpHeaders headers = new HttpHeaders();
+       
+       headers.setContentType(MediaType.IMAGE_JPEG);
+       
+       return new ResponseEntity<>(imagen,headers, HttpStatus.OK); 
+    }
 }

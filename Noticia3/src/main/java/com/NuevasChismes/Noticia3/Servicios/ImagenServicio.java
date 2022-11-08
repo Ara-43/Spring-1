@@ -4,7 +4,7 @@ package com.NuevasChismes.Noticia3.Servicios;
 import com.NuevasChismes.Noticia3.Entidades.Imagen;
 import com.NuevasChismes.Noticia3.Excepciones.MiException;
 import com.NuevasChismes.Noticia3.Repositorios.ImagenRepositorio;
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +20,11 @@ public class ImagenServicio {
 
     @Transactional //impactan
     public Imagen guardar(MultipartFile archivo) throws MiException, Exception {
-        validar(archivo);
-        Imagen imagen = new Imagen();
+       // validar(archivo);
+       
         if (archivo != null) {
             try {
+                 Imagen imagen = new Imagen();
                 imagen.setMime(archivo.getContentType());
                 imagen.setNombre(archivo.getName());
                 imagen.setContenido(archivo.getBytes());
@@ -33,7 +34,7 @@ public class ImagenServicio {
                 return null;
             }
         }
-        return imagen;
+        return null;
     }
 
     @Transactional
@@ -61,9 +62,9 @@ public class ImagenServicio {
 
     @Transactional(readOnly = true) //Es de tipo lectura
     public List<Imagen> listarImagen() {
-        List<Imagen> miLista = new ArrayList<>();
-        miLista = imagenRepositorio.findAll();
-        return miLista;
+//        List<Imagen> miLista = new ArrayList<>();
+//        miLista = imagenRepositorio.findAll();
+        return imagenRepositorio.findAll();
     }
 
     private void validar(MultipartFile archivo) throws MiException {
