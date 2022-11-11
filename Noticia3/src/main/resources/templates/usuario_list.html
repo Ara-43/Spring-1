@@ -16,7 +16,7 @@
     <body style="background: #C49976">
         <nav class="navbar navbar-expand-lg navBar">
             <div class="containerImg">
-                <a href="/" class="navbar-brand d-flex align-items-center">
+                <a href="/admin/dashboard " class="navbar-brand d-flex align-items-center">
                     <img class="logo" src="/img/Periodico-icon.png" alt="Img logo">
                     <h1>Lista de Usuarios</h1>
                 </a>
@@ -83,7 +83,7 @@
                         <th scope="row" th:text="${usuario.id}"></th>
                         <td th:text="${usuario.nombre}"></td>
                         <td 
-                            <a><img th:if="${usuario.imagen != null}" class="logo" th:src="@{/imagen/perfil/__${usuario.id}__}" ></a>
+                            <a><img th:if="${usuario.imagen != null}" class="foto" th:src="@{/imagen/perfil/__${usuario.id}__}" ></a>
                         </td>
 
                         <td th:text="${usuario.rol}"></td>

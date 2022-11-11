@@ -5,6 +5,7 @@ import com.NuevasChismes.Noticia3.Entidades.Noticia;
 import com.NuevasChismes.Noticia3.Excepciones.MiException;
 
 import com.NuevasChismes.Noticia3.Repositorios.NoticiaRepositorio;
+import com.NuevasChismes.Noticia3.Servicios.ImagenServicio;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -26,7 +27,7 @@ public class NoticiaServicio {
         
         validar(titulo, cuerpo, archivo);
         
-        Optional<Noticia> respuesta = noticiaRepositorio.findById(id);
+        //Optional<Noticia> respuesta = noticiaRepositorio.findById(id);
         
         Noticia noticia = new Noticia();
         
@@ -104,10 +105,12 @@ public class NoticiaServicio {
         }
     }
     
+    @Transactional
     public void eliminarNoticia(Long id) {
         noticiaRepositorio.deleteById(id);
     }
     
+        @Transactional
     public Noticia getOne(Long id) {
         return noticiaRepositorio.getOne(id);
     }

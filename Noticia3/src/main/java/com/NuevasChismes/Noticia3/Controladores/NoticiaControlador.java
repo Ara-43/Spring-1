@@ -87,8 +87,11 @@ public class NoticiaControlador {
         }
     }
 
-    @DeleteMapping("/eliminar/{id}")
-    public void eliminarNoticia(@PathVariable("id") Long id) {
+    @GetMapping("/eliminar/{id}")
+    public String eliminarNoticia(@PathVariable("id") Long id) {
         noticiaServicio.eliminarNoticia(id);
+        return "redirect:../lista";
     }
+    
+   
 }

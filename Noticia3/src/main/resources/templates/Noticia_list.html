@@ -27,7 +27,7 @@ and open the template in the editor.
         <div class="container">
             <nav class="navbar navbar-expand-lg navBar">
                 <div class="containerImg">
-                    <a href="/" class="navbar-brand d-flex align-items-center">
+                    <a href="/inicio" class="navbar-brand d-flex align-items-center">
                         <img class="logo" src="/img/Periodico-icon.png" alt="Periodico-icon">
                         <h1>Lista de noticias</h1><br>
                     </a>
@@ -78,7 +78,7 @@ and open the template in the editor.
 
             <div class="container m-5" >
 
-                <table class="table table-dark">
+                <table class="table table-dark" enctype="multipart/form-data" >
                     <thead>
                         <tr>
                             <th scope="col">id</th>
@@ -90,23 +90,28 @@ and open the template in the editor.
 
                         </tr>
                     </thead> 
-                    <tbody th:each="noticia : ${noticias}"> 
+                    <tbody th:each="noticias : ${noticias}" > 
                         <tr>
-                            <th scope="row" th:text="${noticia.id}"></th>
-                            <th th:text="${noticia.titulo}"></th>
-                            <td  th:text="${noticia.cuerpo}"></td>
+                            <th scope="row" th:text="${noticias.id}"></th>
+                            <th th:text="${noticias.titulo}"></th>
+                            <td  th:text="${noticias.cuerpo}"></td>
                             <!--                            <td class="logo"  th:src="@{/foto/noticia/__${noticia.id}__}"></td>-->
                             <!--                            <td 
                                                             <a><img th:if="${noticia.foto != null}"  th:src="@{/foto/noticia/__${noticia.id}__}"></a>
                                                         </td>-->
-                            <td th:text="${noticia.foto.contenido}"></td>
+                            <!--                            <td th:text="${noticia.foto.contenido}"></td>-->
+                            <td> 
+                            <img th:if="${noticias.foto != null}" class="foto" th:src="@{/imagen/imagen2/__${noticias.id}__}" name="foto" >      
+                                <!--                                <img th:src="@{/foto/noticia/__${session.noticiasession.id}__}" class="card-img-top"  >-->
+<!--                                <img th:if="${noticias.foto != null}" class="foto" th:src="@{noticias.id}" name="foto" >      -->
+                            </td>
 
                             <td >
-                                <a sec:authorize="hasRole('PERIODISTA')" th:href= "@{/noticia/modificar/__${noticia.id}__}"><i 
+                                <a sec:authorize="hasRole('PERIODISTA')" th:href= "@{/noticias/modificar/__${noticias.id}__}"><i 
                                         class="fas fa-feather-alt"></i> Modificar </a>
                             </td>
                             <td>
-                                <a sec:authorize="hasRole('ADMIN')" th:href= "@{/noticia/eliminar/__${noticia.id}__}"><i 
+                                <a sec:authorize="hasRole('ADMIN')" th:href= "@{/noticia/eliminar/__${noticias.id}__}"><i 
                                         class="fas fa-feather-alt"></i> Eliminar </a>
                             </td>
 

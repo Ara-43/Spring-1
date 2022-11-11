@@ -3,8 +3,10 @@ package com.NuevasChismes.Noticia3.Controladores;
 
 import com.NuevasChismes.Noticia3.Entidades.Noticia;
 import com.NuevasChismes.Noticia3.Entidades.Usuario;
+
 import com.NuevasChismes.Noticia3.Servicios.NoticiaServicio;
 import com.NuevasChismes.Noticia3.Servicios.UsuarioServicio;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -22,6 +24,7 @@ public class ImagenControlador {
     @Autowired
     UsuarioServicio usuarioServicio;
     
+    @Autowired
     NoticiaServicio noticiaServicio;
     
     @GetMapping("/perfil/{id}")
@@ -37,9 +40,9 @@ public class ImagenControlador {
        return new ResponseEntity<>(imagen,headers, HttpStatus.OK); 
     }
     
-     @GetMapping("/noticia/{id}")
+     @GetMapping("/imagen2/{id}")
     public ResponseEntity<byte[]> imagenNoticia (@PathVariable Long id){
-        Noticia not = noticiaServicio.getOne(id);
+       Noticia not = noticiaServicio.getOne(id);
         
        byte[] imagen= not.getFoto().getContenido();
        
