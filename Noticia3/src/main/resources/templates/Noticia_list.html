@@ -101,13 +101,13 @@ and open the template in the editor.
                                                         </td>-->
                             <!--                            <td th:text="${noticia.foto.contenido}"></td>-->
                             <td> 
-                            <img th:if="${noticias.foto != null}" class="foto" th:src="@{/imagen/imagen2/__${noticias.id}__}" name="foto" >      
+                                <img th:if="${noticias.foto != null}" class="foto" th:src="@{/imagen/imagen2/__${noticias.id}__}" name="foto" style="height: 300px">      
                                 <!--                                <img th:src="@{/foto/noticia/__${session.noticiasession.id}__}" class="card-img-top"  >-->
 <!--                                <img th:if="${noticias.foto != null}" class="foto" th:src="@{noticias.id}" name="foto" >      -->
                             </td>
 
                             <td >
-                                <a sec:authorize="hasRole('PERIODISTA')" th:href= "@{/noticias/modificar/__${noticias.id}__}"><i 
+                                <a sec:authorize="hasRole('PERIODISTA')" th:href= "@{/noticia/modificar/__${noticias.id}__}"><i 
                                         class="fas fa-feather-alt"></i> Modificar </a>
                             </td>
                             <td>

@@ -5,7 +5,6 @@ import com.NuevasChismes.Noticia3.Entidades.Noticia;
 import com.NuevasChismes.Noticia3.Excepciones.MiException;
 
 import com.NuevasChismes.Noticia3.Repositorios.NoticiaRepositorio;
-import com.NuevasChismes.Noticia3.Servicios.ImagenServicio;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -108,6 +107,9 @@ public class NoticiaServicio {
     @Transactional
     public void eliminarNoticia(Long id) {
         noticiaRepositorio.deleteById(id);
+        //Noticia noticia = noticiaRepositorio.eliminarNoticia(id);
+        //return noticia;
+        // ==.deleteneews();
     }
     
         @Transactional
